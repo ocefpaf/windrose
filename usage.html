@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notebook example &mdash; windrose  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Development" href="development.html" />
+    <link rel="prev" title="Install" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> windrose
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Notebook example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#script-example">Script example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a-stacked-histogram-with-normed-displayed-in-percent-results">A stacked histogram with normed (displayed in percent) results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#another-stacked-histogram-representation-not-normed-with-bins-limits">Another stacked histogram representation, not normed, with bins limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-windrose-in-filled-representation-with-a-controlled-colormap">A windrose in filled representation, with a controlled colormap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#same-as-above-but-with-contours-over-each-filled-region">Same as above, but with contours over each filled region…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#or-without-filled-regions">…or without filled regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#probability-density-function-pdf-and-fitting-weibull-distribution">probability density function (pdf) and fitting Weibull distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overlay-of-a-map">Overlay of a map</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#functional-api">Functional API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#pandas-support">Pandas support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#subplots">Subplots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#video-export">Video export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">windrose</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Notebook example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="notebook-example">
+<h1>Notebook example<a class="headerlink" href="#notebook-example" title="Permalink to this headline"></a></h1>
+<p>An <a class="reference external" href="http://ipython.org/">IPython (Jupyter)</a> notebook showing this
+package usage is available at:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://nbviewer.org/github/python-windrose/windrose/blob/master/windrose_sample_random.ipynb">https://nbviewer.org/github/python-windrose/windrose/blob/master/windrose_sample_random.ipynb</a></p></li>
+</ul>
+</section>
+<section id="script-example">
+<h1>Script example<a class="headerlink" href="#script-example" title="Permalink to this headline"></a></h1>
+<p>This example use randoms values for wind speed and direction(ws and wd
+variables). In situation, these variables are loaded with reals values
+(1-D array), from a database or directly from a text file (see the
+“load” facility from the matplotlib.pylab interface for that).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">windrose</span> <span class="kn">import</span> <span class="n">WindroseAxes</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Create wind speed and direction variables</span>
+
+<span class="n">ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">*</span> <span class="mi">6</span>
+<span class="n">wd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">*</span> <span class="mi">360</span>
+</pre></div>
+</div>
+<section id="a-stacked-histogram-with-normed-displayed-in-percent-results">
+<h2>A stacked histogram with normed (displayed in percent) results<a class="headerlink" href="#a-stacked-histogram-with-normed-displayed-in-percent-results" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">WindroseAxes</span><span class="o">.</span><span class="n">from_ax</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">opening</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="bar" src="_images/bar.png" />
+</figure>
+</section>
+<section id="another-stacked-histogram-representation-not-normed-with-bins-limits">
+<h2>Another stacked histogram representation, not normed, with bins limits<a class="headerlink" href="#another-stacked-histogram-representation-not-normed-with-bins-limits" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">WindroseAxes</span><span class="o">.</span><span class="n">from_ax</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="box" src="_images/box.png" />
+</figure>
+</section>
+<section id="a-windrose-in-filled-representation-with-a-controlled-colormap">
+<h2>A windrose in filled representation, with a controlled colormap<a class="headerlink" href="#a-windrose-in-filled-representation-with-a-controlled-colormap" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">WindroseAxes</span><span class="o">.</span><span class="n">from_ax</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">hot</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="contourf" src="_images/contourf.png" />
+</figure>
+</section>
+<section id="same-as-above-but-with-contours-over-each-filled-region">
+<h2>Same as above, but with contours over each filled region…<a class="headerlink" href="#same-as-above-but-with-contours-over-each-filled-region" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">WindroseAxes</span><span class="o">.</span><span class="n">from_ax</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">hot</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="contourf-contour" src="_images/contourf-contour.png" />
+</figure>
+</section>
+<section id="or-without-filled-regions">
+<h2>…or without filled regions<a class="headerlink" href="#or-without-filled-regions" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">WindroseAxes</span><span class="o">.</span><span class="n">from_ax</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">hot</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="contour" src="_images/contour.png" />
+</figure>
+<p>After that, you can have a look at the computed values used to plot the
+windrose with the <code class="docutils literal notranslate"><span class="pre">ax._info</span></code> dictionary :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ax._info['bins']</span></code> :
+list of bins (limits) used for wind speeds. If not set in the call, bins
+will be set to 6 parts between wind speed min and max.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ax._info['dir']</span></code> : list of directions “boundaries” used to compute the
+distribution by wind direction sector. This can be set by the nsector
+parameter (see below).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ax._info['table']</span></code> : the resulting table of
+the computation. It’s a 2D histogram, where each line represents a wind
+speed class, and each column represents a wind direction class.</p></li>
+</ul>
+<p>So, to know the frequency of each wind direction, for all wind speeds,
+do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">ws</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nsector</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">_info</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">]</span>
+<span class="n">wd_freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and to have a graphical representation of this result :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">direction</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">_info</span><span class="p">[</span><span class="s1">&#39;dir&#39;</span><span class="p">]</span>
+<span class="n">wd_freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span> <span class="n">wd_freq</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">xlabels</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;N-E&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;E&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;S-E&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;S-O&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;N-O&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">xticks</span><span class="o">=</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">xticks</span><span class="p">)</span>
+<span class="n">draw</span><span class="p">()</span>
+<span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">xlabels</span><span class="p">)</span>
+<span class="n">draw</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="histo\_WD" src="_images/histo_WD.png" />
+</figure>
+<p>In addition of all the standard pyplot parameters, you can pass special
+parameters to control the windrose production. For the stacked histogram
+windrose, calling help(ax.bar) will give :
+<code class="docutils literal notranslate"><span class="pre">bar(self,</span> <span class="pre">direction,</span> <span class="pre">var,</span> <span class="pre">**kwargs)</span></code> method of
+<code class="docutils literal notranslate"><span class="pre">windrose.WindroseAxes</span></code> instance Plot a windrose in bar mode. For each
+var bins and for each sector, a colored bar will be draw on the axes.</p>
+<p>Mandatory:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">direction</span></code> : 1D array - directions the wind blows from, North centred</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var</span></code> : 1D array - values of the variable to compute. Typically the wind speeds</p></li>
+</ul>
+<p>Optional:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nsector</span></code> : integer - number of sectors used to compute
+the windrose table. If not set, nsectors=16, then each sector will be
+360/16=22.5°, and the resulting computed table will be aligned with the
+cardinals points.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bins</span></code> : 1D array or integer - number of bins, or a
+sequence of bins variable. If not set, bins=6 between min(var) and
+max(var).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blowto</span></code> : bool. If True, the windrose will be pi rotated,
+to show where the wind blow to (useful for pollutant rose).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colors</span></code> : string or tuple - one string color (<code class="docutils literal notranslate"><span class="pre">'k'</span></code> or
+<code class="docutils literal notranslate"><span class="pre">'black'</span></code>), in this case all bins will be plotted in this color; a
+tuple of matplotlib color args (string, float, rgb, etc), different
+levels will be plotted in different colors in the order specified.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cmap</span></code> : a cm Colormap instance from <code class="docutils literal notranslate"><span class="pre">matplotlib.cm</span></code>. - if
+<code class="docutils literal notranslate"><span class="pre">cmap</span> <span class="pre">==</span> <span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">colors</span> <span class="pre">==</span> <span class="pre">None</span></code>, a default Colormap is used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edgecolor</span></code> : string - The string color each edge bar will be plotted.
+Default : no edgecolor</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opening</span></code> : float - between 0.0 and 1.0, to
+control the space between each sector (1.0 for no space)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mean_values</span></code> : Bool - specify wind speed statistics with
+direction=specific mean wind speeds. If this flag is specified, var is
+expected to be an array of mean wind speeds corresponding to each entry
+in <code class="docutils literal notranslate"><span class="pre">direction</span></code>. These are used to generate a distribution of wind
+speeds assuming the distribution is Weibull with shape factor = 2.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weibull_factors</span></code> : Bool - specify wind speed statistics with
+direction=specific weibull scale and shape factors. If this flag is
+specified, var is expected to be of the form [[7,2], …., [7.5,1.9]]
+where var[i][0] is the weibull scale factor and var[i][1] is the shape
+factor</p></li>
+</ul>
+</section>
+<section id="probability-density-function-pdf-and-fitting-weibull-distribution">
+<h2>probability density function (pdf) and fitting Weibull distribution<a class="headerlink" href="#probability-density-function-pdf-and-fitting-weibull-distribution" title="Permalink to this headline"></a></h2>
+<p>A probability density function can be plot using:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">windrose</span> <span class="kn">import</span> <span class="n">WindAxes</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">WindAxes</span><span class="o">.</span><span class="n">from_ax</span><span class="p">()</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">ax</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="pdf" src="_images/pdf.png" />
+</figure>
+<p>Optimal parameters of Weibull distribution can be displayed using</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.7042156870194352</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">7.0907180300605459</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="overlay-of-a-map">
+<h2>Overlay of a map<a class="headerlink" href="#overlay-of-a-map" title="Permalink to this headline"></a></h2>
+<p>This example illustrate how to set an windrose axe on top of any other axes. Specifically,
+overlaying a map is often useful.
+It rely on matplotlib toolbox inset_axes utilities.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid.inset_locator</span> <span class="kn">import</span> <span class="n">inset_axes</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.io.img_tiles</span> <span class="k">as</span> <span class="nn">cimgt</span>
+
+<span class="kn">import</span> <span class="nn">windrose</span>
+
+<span class="n">ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">*</span> <span class="mi">6</span>
+<span class="n">wd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span> <span class="o">*</span> <span class="mi">360</span>
+
+<span class="n">minlon</span><span class="p">,</span> <span class="n">maxlon</span><span class="p">,</span> <span class="n">minlat</span><span class="p">,</span> <span class="n">maxlat</span> <span class="o">=</span> <span class="p">(</span><span class="mf">6.5</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">45.85</span><span class="p">,</span> <span class="mf">46.05</span><span class="p">)</span>
+
+<span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="c1"># Draw main ax on top of which we will add windroses</span>
+<span class="n">main_ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">)</span>
+<span class="n">main_ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="n">minlon</span><span class="p">,</span> <span class="n">maxlon</span><span class="p">,</span> <span class="n">minlat</span><span class="p">,</span> <span class="n">maxlat</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">proj</span><span class="p">)</span>
+<span class="n">main_ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">draw_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">main_ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+
+<span class="n">request</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">OSM</span><span class="p">()</span>
+<span class="n">main_ax</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Coordinates of the station we were measuring windspeed</span>
+<span class="n">cham_lon</span><span class="p">,</span> <span class="n">cham_lat</span> <span class="o">=</span> <span class="p">(</span><span class="mf">6.8599</span><span class="p">,</span> <span class="mf">45.9259</span><span class="p">)</span>
+<span class="n">passy_lon</span><span class="p">,</span> <span class="n">passy_lat</span> <span class="o">=</span> <span class="p">(</span><span class="mf">6.7</span><span class="p">,</span> <span class="mf">45.9159</span><span class="p">)</span>
+
+<span class="c1"># Inset axe it with a fixed size</span>
+<span class="n">wrax_cham</span> <span class="o">=</span> <span class="n">inset_axes</span><span class="p">(</span><span class="n">main_ax</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>                             <span class="c1"># size in inches</span>
+        <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>                            <span class="c1"># size in inches</span>
+        <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>                        <span class="c1"># center bbox at given position</span>
+        <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="n">cham_lon</span><span class="p">,</span> <span class="n">cham_lat</span><span class="p">),</span> <span class="c1"># position of the axe</span>
+        <span class="n">bbox_transform</span><span class="o">=</span><span class="n">main_ax</span><span class="o">.</span><span class="n">transData</span><span class="p">,</span>    <span class="c1"># use data coordinate (not axe coordinate)</span>
+        <span class="n">axes_class</span><span class="o">=</span><span class="n">windrose</span><span class="o">.</span><span class="n">WindroseAxes</span><span class="p">,</span>    <span class="c1"># specify the class of the axe</span>
+        <span class="p">)</span>
+
+<span class="c1"># Inset axe with size relative to main axe</span>
+<span class="n">height_deg</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">wrax_passy</span> <span class="o">=</span> <span class="n">inset_axes</span><span class="p">(</span><span class="n">main_ax</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span>                        <span class="c1"># size in % of bbox</span>
+        <span class="n">height</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span>                       <span class="c1"># size in % of bbox</span>
+        <span class="c1">#loc=&#39;center&#39;,  # don&#39;t know why, but this doesn&#39;t work.</span>
+        <span class="c1"># specify the center lon and lat of the plot, and size in degree</span>
+        <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="n">passy_lon</span><span class="o">-</span><span class="n">height_deg</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">passy_lat</span><span class="o">-</span><span class="n">height_deg</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">height_deg</span><span class="p">,</span> <span class="n">height_deg</span><span class="p">),</span>
+        <span class="n">bbox_transform</span><span class="o">=</span><span class="n">main_ax</span><span class="o">.</span><span class="n">transData</span><span class="p">,</span>
+        <span class="n">axes_class</span><span class="o">=</span><span class="n">windrose</span><span class="o">.</span><span class="n">WindroseAxes</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<span class="n">wrax_cham</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">ws</span><span class="p">)</span>
+<span class="n">wrax_passy</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">ws</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="p">[</span><span class="n">wrax_cham</span><span class="p">,</span> <span class="n">wrax_passy</span><span class="p">]:</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelleft</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">labelbottom</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="map_overlay" src="_images/map_overlay.png" />
+</figure>
+</section>
+</section>
+<section id="functional-api">
+<h1>Functional API<a class="headerlink" href="#functional-api" title="Permalink to this headline"></a></h1>
+<p>Instead of using object oriented approach like previously shown, some
+“shortcut” functions have been defined: <code class="docutils literal notranslate"><span class="pre">wrbox</span></code>, <code class="docutils literal notranslate"><span class="pre">wrbar</span></code>,
+<code class="docutils literal notranslate"><span class="pre">wrcontour</span></code>, <code class="docutils literal notranslate"><span class="pre">wrcontourf</span></code>, <code class="docutils literal notranslate"><span class="pre">wrpdf</span></code>. See <a class="reference external" href="https://github.com/python-windrose/windrose/blob/master/tests/test_windrose.py">unit
+tests</a>.</p>
+</section>
+<section id="pandas-support">
+<h1>Pandas support<a class="headerlink" href="#pandas-support" title="Permalink to this headline"></a></h1>
+<p>windrose not only supports Numpy arrays. It also supports also Pandas
+DataFrame. <code class="docutils literal notranslate"><span class="pre">plot_windrose</span></code> function provides most of plotting features
+previously shown.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">windrose</span> <span class="kn">import</span> <span class="n">plot_windrose</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">ws</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="mi">6</span>
+<span class="n">wd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="mi">360</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;speed&#39;</span><span class="p">:</span> <span class="n">ws</span><span class="p">,</span> <span class="s1">&#39;direction&#39;</span><span class="p">:</span> <span class="n">wd</span><span class="p">})</span>
+<span class="n">plot_windrose</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;contour&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">hot</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Mandatory:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df</span></code>: Pandas DataFrame with <code class="docutils literal notranslate"><span class="pre">DateTimeIndex</span></code> as index
+and at least 2 columns (<code class="docutils literal notranslate"><span class="pre">'speed'</span></code> and <code class="docutils literal notranslate"><span class="pre">'direction'</span></code>).</p></li>
+</ul>
+<p>Optional:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">kind</span></code> : kind of plot (might be either, <code class="docutils literal notranslate"><span class="pre">'contour'</span></code>, <code class="docutils literal notranslate"><span class="pre">'contourf'</span></code>, <code class="docutils literal notranslate"><span class="pre">'bar'</span></code>, <code class="docutils literal notranslate"><span class="pre">'box'</span></code>, <code class="docutils literal notranslate"><span class="pre">'pdf'</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var_name</span></code> : name of var column name ; default value is <code class="docutils literal notranslate"><span class="pre">VAR_DEFAULT='speed'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">direction_name</span></code> : name of direction column name ; default value is
+<code class="docutils literal notranslate"><span class="pre">DIR_DEFAULT='direction'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clean_flag</span></code> : cleanup data flag (remove
+data points with <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, <code class="docutils literal notranslate"><span class="pre">var=0</span></code>) before plotting ; default value is
+<code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+</ul>
+</section>
+<section id="subplots">
+<h1>Subplots<a class="headerlink" href="#subplots" title="Permalink to this headline"></a></h1>
+<figure class="align-default">
+<img alt="subplots" src="_images/subplots.png" />
+</figure>
+</section>
+<section id="video-export">
+<h1>Video export<a class="headerlink" href="#video-export" title="Permalink to this headline"></a></h1>
+<p>A video of plots can be exported. A playlist of videos is available at
+<a class="reference external" href="https://www.youtube.com/playlist?list=PLE9hIvV5BUzsQ4EPBDnJucgmmZ85D_b-W">https://www.youtube.com/playlist?list=PLE9hIvV5BUzsQ4EPBDnJucgmmZ85D_b-W</a></p>
+<p>See:</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=0u2RxtGgEFo"><img alt="Video1" src="http://img.youtube.com/vi/0u2RxtGgEFo/0.jpg" /></a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=3CWpjSEt0so"><img alt="Video2" src="http://img.youtube.com/vi/3CWpjSEt0so/0.jpg" /></a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=UiGC-3aw9TM"><img alt="Video3" src="http://img.youtube.com/vi/UiGC-3aw9TM/0.jpg" /></a></p>
+<p><a class="reference external" href="https://github.com/python-windrose/windrose/blob/master/samples/example_animate.py">Source code</a></p>
+<p>This is just a sample for now. API for video need to be created.</p>
+<p>Use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python samples/example_animate.py --help
+</pre></div>
+</div>
+<p>to display command line interface usage.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-left" title="Install" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="development.html" class="btn btn-neutral float-right" title="Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2018, Lionel Roubeyrie &amp; Sebastien Celles.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
