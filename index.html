@@ -15,6 +15,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -39,12 +40,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Notebook example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#script-example">Script example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#functional-api">Functional API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#pandas-support">Pandas support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#subplots">Subplots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#video-export">Video export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage-output.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
 </ul>
@@ -73,7 +69,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <p><a class="reference external" href="https://pypi.org/project/windrose/"><img alt="Latest Version" src="https://img.shields.io/pypi/v/windrose.svg" /></a> <a class="reference external" href="https://pypi.org/project/windrose/"><img alt="Supported Python versions" src="https://img.shields.io/pypi/pyversions/windrose.svg" /></a> <a class="reference external" href="https://pypi.org/project/windrose/"><img alt="Wheel format" src="https://img.shields.io/pypi/wheel/windrose.svg" /></a> <a class="reference external" href="https://pypi.org/project/windrose/"><img alt="License" src="https://img.shields.io/pypi/l/windrose.svg" /></a>
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<p><a class="reference external" href="https://pypi.org/project/windrose/"><img alt="Latest Version" src="https://img.shields.io/pypi/v/windrose.svg" /></a> <a class="reference external" href="https://pypi.org/project/windrose/"><img alt="Supported Python versions" src="https://img.shields.io/pypi/pyversions/windrose.svg" /></a> <a class="reference external" href="https://pypi.org/project/windrose/"><img alt="Wheel format" src="https://img.shields.io/pypi/wheel/windrose.svg" /></a> <a class="reference external" href="https://pypi.org/project/windrose/"><img alt="License" src="https://img.shields.io/pypi/l/windrose.svg" /></a>
 <a class="reference external" href="https://pypi.org/project/windrose/"><img alt="Development Status" src="https://img.shields.io/pypi/status/windrose.svg" /></a> <a class="reference external" href="https://pypi.org/project/windrose/"><img alt="Downloads monthly" src="https://img.shields.io/pypi/dm/windrose.svg" /></a> <a class="reference external" href="https://github.com/python-windrose/windrose/actions/workflows/tests.yml"><img alt="Tests" src="https://github.com/python-windrose/windrose/actions/workflows/tests.yml/badge.svg" /></a> <a class="reference external" href="https://zenodo.org/badge/latestdoi/37549137"><img alt="DOI" src="https://zenodo.org/badge/37549137.svg" /></a> <a class="reference external" href="http://depsy.org/package/python/windrose"><img alt="Research software impact" src="http://depsy.org/api/package/pypi/windrose/badge.svg" /></a></p>
 <section id="welcome-to-windrose-s-documentation">
 <h1>Welcome to windrose’s documentation!<a class="headerlink" href="#welcome-to-windrose-s-documentation" title="Permalink to this headline"></a></h1>
@@ -86,21 +106,19 @@
 <li class="toctree-l2"><a class="reference internal" href="install.html#install-latest-development-version">Install latest development version</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Notebook example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#script-example">Script example</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#a-stacked-histogram-with-normed-displayed-in-percent-results">A stacked histogram with normed (displayed in percent) results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#another-stacked-histogram-representation-not-normed-with-bins-limits">Another stacked histogram representation, not normed, with bins limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#a-windrose-in-filled-representation-with-a-controlled-colormap">A windrose in filled representation, with a controlled colormap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#same-as-above-but-with-contours-over-each-filled-region">Same as above, but with contours over each filled region…</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#or-without-filled-regions">…or without filled regions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#probability-density-function-pdf-and-fitting-weibull-distribution">probability density function (pdf) and fitting Weibull distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#overlay-of-a-map">Overlay of a map</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage-output.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage-output.html#A-stacked-histogram-with-normed-(displayed-in-percent)-results.">A stacked histogram with normed (displayed in percent) results.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage-output.html#Another-stacked-histogram-representation,-not-normed,-with-bins-limits.">Another stacked histogram representation, not normed, with bins limits.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage-output.html#A-windrose-in-filled-representation,-with-a-controlled-colormap.">A windrose in filled representation, with a controlled colormap.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage-output.html#Same-as-above,-but-with-contours-over-each-filled-region…">Same as above, but with contours over each filled region…</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage-output.html#…or-without-filled-regions.">…or without filled regions.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage-output.html#Probability-density-function-(pdf)-and-fitting-Weibull-distribution">Probability density function (pdf) and fitting Weibull distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage-output.html#Overlay-of-a-map">Overlay of a map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage-output.html#Functional-API">Functional API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage-output.html#Pandas-support">Pandas support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage-output.html#Video-export">Video export</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#functional-api">Functional API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#pandas-support">Pandas support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#subplots">Subplots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html#video-export">Video export</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development.html">Development</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="development.html#issues">Issues</a></li>
 <li class="toctree-l2"><a class="reference internal" href="development.html#clone">Clone</a></li>
