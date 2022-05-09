@@ -95,6 +95,7 @@
 </style>
 <section id="module-windrose">
 <span id="api"></span><h1>API<a class="headerlink" href="#module-windrose" title="Permalink to this headline"></a></h1>
+<p>Windrose for matplotlib</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="windrose.WindAxes">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">windrose.</span></span><span class="sig-name descname"><span class="pre">WindAxes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#windrose.WindAxes" title="Permalink to this definition"></a></dt>
@@ -511,17 +512,20 @@ true, the table will be reversed (useful for pollutantrose)</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="windrose.plot_windrose">
 <span class="sig-prename descclassname"><span class="pre">windrose.</span></span><span class="sig-name descname"><span class="pre">plot_windrose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction_or_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'contour'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'speed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'direction'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#windrose.plot_windrose" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Plot windrose from a pandas DataFrame or a numpy array.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="windrose.plot_windrose_df">
 <span class="sig-prename descclassname"><span class="pre">windrose.</span></span><span class="sig-name descname"><span class="pre">plot_windrose_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'contour'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'speed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'direction'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#windrose.plot_windrose_df" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Plot windrose from a pandas DataFrame.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="windrose.plot_windrose_np">
 <span class="sig-prename descclassname"><span class="pre">windrose.</span></span><span class="sig-name descname"><span class="pre">plot_windrose_np</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'contour'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#windrose.plot_windrose_np" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Plot windrose from a numpy array.</p>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="windrose.wrbar">
