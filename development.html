@@ -114,27 +114,28 @@
 <h2>Clone<a class="headerlink" href="#clone" title="Permalink to this heading"></a></h2>
 <p>You can clone repository to try to fix issues yourself using:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/python-windrose/windrose.git
+$ <span class="nb">cd</span> windrose
 </pre></div>
 </div>
 </section>
 <section id="run-unit-tests">
 <h2>Run unit tests<a class="headerlink" href="#run-unit-tests" title="Permalink to this heading"></a></h2>
 <p>Run all unit tests</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest -vv tests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m pytest -vv tests
 </pre></div>
 </div>
 <p>Run a given test</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pytest -vv tests/test_windrose.py::test_windrose_np_plot_and_pd_plot
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m pytest -vv tests/test_windrose.py::test_windrose_np_plot_and_pd_plot
 </pre></div>
 </div>
 </section>
 <section id="install-development-version">
 <h2>Install development version<a class="headerlink" href="#install-development-version" title="Permalink to this heading"></a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python setup.py install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m pip install .
 </pre></div>
 </div>
-<p>or</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo pip install git+https://github.com/python-windrose/windrose.git
+<p>or directly from repository</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m pip install git+https://github.com/python-windrose/windrose.git
 </pre></div>
 </div>
 </section>
