@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> windrose
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            windrose
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -68,7 +72,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Development</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/development.rst.txt" rel="nofollow"> View page source</a>
@@ -79,31 +83,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="development">
+  <section id="development">
 <h1>Development<a class="headerlink" href="#development" title="Permalink to this heading"></a></h1>
 <p>You can help to develop this library.</p>
 <section id="issues">
@@ -114,29 +94,29 @@
 <section id="clone">
 <h2>Clone<a class="headerlink" href="#clone" title="Permalink to this heading"></a></h2>
 <p>You can clone repository to try to fix issues yourself using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/python-windrose/windrose.git
-$ <span class="nb">cd</span> windrose
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/python-windrose/windrose.git
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>windrose
 </pre></div>
 </div>
 </section>
 <section id="run-unit-tests">
 <h2>Run unit tests<a class="headerlink" href="#run-unit-tests" title="Permalink to this heading"></a></h2>
 <p>Run all unit tests</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m pytest -vv tests
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-vv<span class="w"> </span>tests
 </pre></div>
 </div>
 <p>Run a given test</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m pytest -vv tests/test_windrose.py::test_windrose_np_plot_and_pd_plot
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-vv<span class="w"> </span>tests/test_windrose.py::test_windrose_np_plot_and_pd_plot
 </pre></div>
 </div>
 </section>
 <section id="install-development-version">
 <h2>Install development version<a class="headerlink" href="#install-development-version" title="Permalink to this heading"></a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m pip install .
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.
 </pre></div>
 </div>
 <p>or directly from repository</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python -m pip install git+https://github.com/python-windrose/windrose.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/python-windrose/windrose.git
 </pre></div>
 </div>
 </section>
