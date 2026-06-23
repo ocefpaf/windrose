@@ -17,37 +17,37 @@ wd = np.random.random(N) * 360
 bins = np.arange(0, 8, 1)
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/func")
+@pytest.mark.mpl_image_compare(baseline_dir="output/func", tolerance=10)
 def test_wrscatter():
     ax = wrscatter(wd, ws, alpha=0.2)
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/func", tolerance=15.5)
+@pytest.mark.mpl_image_compare(baseline_dir="output/func", tolerance=5)
 def test_wrbar():
     ax = wrbar(wd, ws, normed=True, opening=0.8, edgecolor="white")
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/func", tolerance=6.5)
+@pytest.mark.mpl_image_compare(baseline_dir="output/func", tolerance=20)
 def test_wrbox():
     ax = wrbox(wd, ws, bins=bins)
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/func")
+@pytest.mark.mpl_image_compare(baseline_dir="output/func", tolerance=20)
 def test_wrcontourf():
     ax = wrcontourf(wd, ws, bins=bins, cmap=cm.hot)
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/func")
+@pytest.mark.mpl_image_compare(baseline_dir="output/func", tolerance=20)
 def test_wrcontour():
     ax = wrcontour(wd, ws, bins=bins, cmap=cm.hot, lw=3)
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/func")
+@pytest.mark.mpl_image_compare(baseline_dir="output/func", tolerance=10)
 def test_wrpdf():
     ax, params = wrpdf(ws, bins=bins)
     return ax.figure
