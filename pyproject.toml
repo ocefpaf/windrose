@@ -30,9 +30,19 @@ dependencies = [
   "matplotlib>=3",
   "numpy>=1.21",
 ]
+optional-dependencies.docs = [ "jupyter", "nbsphinx", "seaborn", "sphinx", "sphinx-copybutton", "sphinx-rtd-theme" ]
 optional-dependencies.extras = [
   "pandas",
   "scipy",
+]
+optional-dependencies.tests = [
+  "cartopy",
+  "check-manifest",
+  "coverage",
+  "pytest",
+  "pytest-cov",
+  "pytest-mpl",
+  "pytest-sugar"
 ]
 urls.documentation = "https://python-windrose.github.io/windrose"
 urls.homepage = "https://github.com/python-windrose/windrose"
@@ -41,7 +51,6 @@ urls.repository = "https://github.com/python-windrose/windrose"
 [tool.setuptools]
 packages = [ "windrose" ]
 include-package-data = true
-dynamic.dependencies = { file = [ "requirements.txt" ] }
 dynamic.readme = { file = "README.md", content-type = "text/markdown" }
 license-files = [
   "LICENSE.txt",

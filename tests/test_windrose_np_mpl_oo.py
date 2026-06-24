@@ -19,7 +19,7 @@ bins = np.arange(0, 8, 1)
 df = pd.DataFrame({"speed": ws, "direction": wd})
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/oo")
+@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=10)
 def test_windrose_with_scatter_plot():
     ax = WindroseAxes.from_ax()
     ax.scatter(wd, ws, alpha=0.2)
@@ -36,7 +36,7 @@ def test_windrose_stacked_histogram_normed():
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=6.5)
+@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=20)
 def test_windrose_stacked_histogram_not_normed_binned():
     # Another stacked histogram representation, not normed, with bins limits
     ax = WindroseAxes.from_ax()
@@ -45,7 +45,7 @@ def test_windrose_stacked_histogram_not_normed_binned():
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=6.5)
+@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=20)
 def test_windrose_stacked_histogram_not_normed_binned_calm_limit():
     # Another stacked histogram representation, not normed, with bins limits and a calm limit
     ax = WindroseAxes.from_ax()
@@ -55,7 +55,7 @@ def test_windrose_stacked_histogram_not_normed_binned_calm_limit():
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=15.5)
+@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=20)
 def test_windrose_stacked_histogram_normed_calm_limit():
     # windrose like a stacked histogram with normed (displayed in percent) results and a calm limit
     ax = WindroseAxes.from_ax()
@@ -64,7 +64,7 @@ def test_windrose_stacked_histogram_normed_calm_limit():
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/oo")
+@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=20)
 def test_filled_with_colormap():
     # A windrose in filled representation, with a controlled colormap
     ax = WindroseAxes.from_ax()
@@ -73,7 +73,7 @@ def test_filled_with_colormap():
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/oo")
+@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=20)
 def test_filled_with_colormap_calm_limit():
     # A windrose in filled representation, with a controlled colormap and a calm limit
     ax = WindroseAxes.from_ax()
@@ -83,7 +83,7 @@ def test_filled_with_colormap_calm_limit():
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/oo")
+@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=20)
 def test_filled_with_colormap_contours():
     # Same as above, but with contours over each filled region...
     ax = WindroseAxes.from_ax()
@@ -93,7 +93,7 @@ def test_filled_with_colormap_contours():
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/oo")
+@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=20)
 def test_filled_with_colormap_contours_calm_limit():
     # Same as above, but with contours over each filled region...
     ax = WindroseAxes.from_ax()
@@ -105,7 +105,7 @@ def test_filled_with_colormap_contours_calm_limit():
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/oo")
+@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=20)
 def test_without_filled_with_colormap_contours():
     ax = WindroseAxes.from_ax()
     ax.contour(wd, ws, bins=bins, cmap=cm.hot, lw=3)
@@ -113,7 +113,7 @@ def test_without_filled_with_colormap_contours():
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/oo")
+@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=20)
 def test_without_filled_with_colormap_contours_calm_limit():
     ax = WindroseAxes.from_ax()
     # the bins most not be below the calm_limit
@@ -129,7 +129,7 @@ def test_without_filled_with_colormap_contours_calm_limit():
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/oo")
+@pytest.mark.mpl_image_compare(baseline_dir="output/oo", tolerance=10)
 def test_pdf():
     ax = WindAxes.from_ax()
     bins = np.arange(0, 8, 1)

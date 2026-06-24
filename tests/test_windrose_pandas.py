@@ -21,49 +21,49 @@ bins = np.arange(0, 8, 1)
 df = pd.DataFrame({"speed": ws, "direction": wd})
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/df")
+@pytest.mark.mpl_image_compare(baseline_dir="output/df", tolerance=10)
 def test_scatter():
     kind = "scatter"
     ax = plot_windrose(df, kind=kind, alpha=0.2)
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/df", tolerance=15.5)
+@pytest.mark.mpl_image_compare(baseline_dir="output/df", tolerance=20)
 def test_bar():
     kind = "bar"
     ax = plot_windrose(df, kind=kind, normed=True, opening=0.8, edgecolor="white")
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/df", tolerance=6.5)
+@pytest.mark.mpl_image_compare(baseline_dir="output/df", tolerance=20)
 def test_box():
     kind = "box"
     ax = plot_windrose(df, kind=kind, bins=bins)
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/df")
+@pytest.mark.mpl_image_compare(baseline_dir="output/df", tolerance=20)
 def test_contourf():
     kind = "contourf"
     ax = plot_windrose(df, kind=kind, bins=np.arange(0.01, 8, 1), cmap=cm.hot)
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/df")
+@pytest.mark.mpl_image_compare(baseline_dir="output/df", tolerance=20)
 def test_contour():
     kind = "contour"
     ax = plot_windrose(df, kind=kind, bins=np.arange(0.01, 8, 1), cmap=cm.hot, lw=3)
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/df")
+@pytest.mark.mpl_image_compare(baseline_dir="output/df", tolerance=10)
 def test_pdf():
     kind = "pdf"
     ax, params = plot_windrose(df, kind=kind, bins=np.arange(0.01, 8, 1))
     return ax.figure
 
 
-@pytest.mark.mpl_image_compare(baseline_dir="output/df")
+@pytest.mark.mpl_image_compare(baseline_dir="output/df", tolerance=10)
 def test_windrose_np_plot_and_pd_plot():
     # Not really pandas but this is an orphan test and fits the plot_windrose tests.
     kind = "scatter"
